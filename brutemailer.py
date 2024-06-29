@@ -64,9 +64,19 @@ def brute_mailer(domain, pass_file, email):
 
 def gmail():
 	os.system("clear")
+	print(GREEN)
+	print("""
+____             _       __  __       _ _
+| __ ) _ __ _   _| |_ ___|  \/  | __ _(_) | ___ _ __
+|  _ \| '__| | | | __/ _ \ |\/| |/ _` | | |/ _ \ '__|
+| |_) | |  | |_| | ||  __/ |  | | (_| | | |  __/ |
+|____/|_|   \__,_|\__\___|_|  |_|\__,_|_|_|\___|_|
+
+""")
 	domain = "smtp.gmail.com"
 	gmail_address = input(f"{YELLOW}Enter your target's gmail address:{RESET} ")
 	if not gmail_address.endswith("@gmail.com"):
+		print("\n")
 		print(RED)
 		print("Enter a valid Gmail address!")
 		print(RESET)
@@ -92,9 +102,19 @@ def gmail():
 	
 def outlook():
 	os.system("clear")
+	print(GREEN)
+	print("""
+____             _       __  __       _ _
+| __ ) _ __ _   _| |_ ___|  \/  | __ _(_) | ___ _ __
+|  _ \| '__| | | | __/ _ \ |\/| |/ _` | | |/ _ \ '__|
+| |_) | |  | |_| | ||  __/ |  | | (_| | | |  __/ |
+|____/|_|   \__,_|\__\___|_|  |_|\__,_|_|_|\___|_|
+
+""")
 	domain = "smtp.office365.com"
 	outlook_address = input(f"{YELLOW}Enter your target's outlook mail address:{RESET} ")
 	if not outlook_address.endswith("@outlook.com"):
+		print("\n")
 		print(f"{RED}Enter a valid Outlook mail address!{RESET}")
 		time.sleep(2)
 		program_intro()
@@ -118,6 +138,15 @@ def outlook():
 
 def yahoo():
 	os.system("clear")
+	print(GREEN)
+	print("""
+____             _       __  __       _ _
+| __ ) _ __ _   _| |_ ___|  \/  | __ _(_) | ___ _ __
+|  _ \| '__| | | | __/ _ \ |\/| |/ _` | | |/ _ \ '__|
+| |_) | |  | |_| | ||  __/ |  | | (_| | | |  __/ |
+|____/|_|   \__,_|\__\___|_|  |_|\__,_|_|_|\___|_|
+
+""")
 	domain = "smtp.mail.yahoo.com"
 	yahoo_address = input(f"{YELLOW}Enter your target's yahoo mail address:{RESET} ")
 	print("\n")
@@ -142,10 +171,22 @@ def yahoo():
 
 def pass_gen():
 	os.system("clear")
+	print(GREEN)
+	print("""
+____             _       __  __       _ _
+| __ ) _ __ _   _| |_ ___|  \/  | __ _(_) | ___ _ __
+|  _ \| '__| | | | __/ _ \ |\/| |/ _` | | |/ _ \ '__|
+| |_) | |  | |_| | ||  __/ |  | | (_| | | |  __/ |
+|____/|_|   \__,_|\__\___|_|  |_|\__,_|_|_|\___|_|
+
+""")
 	passwords = []
 	num_pass = int(input(f"{YELLOW}Enter number of passwords to generate:{RESET} "))
 	print("\n")
 	length = int(input(f"{YELLOW}Enter length of each password:{RESET} "))
+	print("\n")
+	print(f"{GREEN}Generating.....{RESET}")
+	time.sleep(3)
 	for i in range(num_pass):
 		passwords.append("".join(  [secrets.choice(string.digits + string.ascii_letters + string.punctuation) for _ in range(length)]))
 	pass_file = "\n".join(passwords)
@@ -153,9 +194,6 @@ def pass_gen():
 	path = "/storage/emulated/0/"
 	with open(os.path.join(path, filename), "w") as file:
 		file.write(pass_file)
-	print("\n")
-	print(f"{GREEN}Generating.....{RESET}")
-	time.sleep(3)
 	print("\n")
 	print(f"{GREEN}[✓] The generated passwords have been saved as 'passwords_file.txt' in the following directory: /storage/emulated/0/{RESET}")
 	time.sleep(4)

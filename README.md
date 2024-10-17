@@ -1,4 +1,4 @@
-**BruteMailer is a python3 tool for hacking different email services' user accounts such as Gmail,outlook, it also comes with a built-in password generator**
+**BruteMailer is a python3 tool for hacking different email services' user accounts such as Gmail,outlook,yahoo...it also comes with a built-in password generator**
 
 **INSTALLATION OF TERMUX**
 

